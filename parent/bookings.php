@@ -14,8 +14,8 @@ page_header('My bookings');
 ?>
 <div class="card">
 <?php if ($list): ?><div class="tw"><table><thead><tr><th>Child</th><th>Vaccine</th><th>Hospital</th><th>Date</th><th>Status</th><th></th></tr></thead><tbody>
-<?php foreach ($list as $a): ?><tr><td><?= e($a['child']) ?></td><td><?= e($a['vaccine']) ?></td><td><?= e($a['hospital']) ?><div class="muted small"><?= e($a['address']) ?></div></td><td><?= e(fmt_date($a['preferred_date'])) ?></td>
-<td><?= pill($a['status']) ?> <?= $a['status'] === 'approved' && $a['result'] !== 'pending' ? pill($a['result']) : '' ?><?php if ($a['admin_remark']): ?><div class="muted small"><?= e($a['admin_remark']) ?></div><?php endif; ?></td>
+<?php foreach ($list as $a): ?><tr><td><?= e($a['child']) ?></td><td><?= e($a['vaccine']) ?></td><td><?= e($a['hospital']) ?><div class="muted xs"><?= e($a['address']) ?></div></td><td><?= e(fmt_date($a['preferred_date'])) ?></td>
+<td><?= pill($a['status']) ?> <?= $a['status'] === 'approved' && $a['result'] !== 'pending' ? pill($a['result']) : '' ?><?php if ($a['admin_remark']): ?><div class="muted xs"><?= e($a['admin_remark']) ?></div><?php endif; ?></td>
 <td><?php if ($a['status'] === 'pending'): ?><form method="post"><?= csrf_field() ?><input type="hidden" name="action" value="cancel"><input type="hidden" name="id" value="<?= (int)$a['id'] ?>"><button class="btn sm no">Cancel</button></form><?php endif; ?></td></tr><?php endforeach; ?>
 </tbody></table></div><?php else: ?><div class="empty">No bookings yet.</div><p style="margin-top:14px"><a class="btn" href="<?= e(url('parent/book.php')) ?>">Book a vaccination</a></p><?php endif; ?></div>
 <?php page_footer();

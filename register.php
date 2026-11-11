@@ -43,7 +43,7 @@ if (is_post()) {
     }
 }
 $err = fn($k) => isset($errors[$k]) ? '<span class="help" style="color:var(--bad)">' . e($errors[$k]) . '</span>' : '';
-$sel = $_POST['role'] ?? 'parent';
+$sel = $_POST['role'] ?? (($_GET['role'] ?? '') === 'hospital' ? 'hospital' : 'parent');
 page_header('');
 ?>
 <div class="auth card" style="max-width:560px">
@@ -72,7 +72,7 @@ page_header('');
     </div>
     <button class="btn" type="submit">Create account</button>
   </form>
-  <p class="muted small" style="margin-top:14px">Already registered? <a href="<?= e(url('login.php')) ?>">Log in</a></p>
+  <p class="muted xs" style="margin-top:14px">Already registered? <a href="<?= e(url('login.php')) ?>">Log in</a></p>
 </div>
 <script>
 document.querySelectorAll('#reg [name=role]').forEach(r=>r.addEventListener('change',()=>{document.getElementById('hosp').hidden=document.querySelector('#reg [name=role]:checked').value!=='hospital'}));

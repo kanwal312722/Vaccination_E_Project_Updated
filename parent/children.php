@@ -40,7 +40,7 @@ page_header('My children');
 <div class="grid">
 <div class="card"><h3>Registered children</h3>
 <?php if ($list): ?><div class="tw"><table><thead><tr><th>Name</th><th>Born</th><th>Blood</th><th></th></tr></thead><tbody>
-<?php foreach ($list as $c): ?><tr><td><?= e($c['name']) ?><div class="muted small"><?= e($c['gender']) ?> · <?= e(age_text($c['dob'])) ?></div></td><td><?= e(fmt_date($c['dob'])) ?></td><td><?= e($c['blood_group'] ?: '-') ?></td>
+<?php foreach ($list as $c): ?><tr><td><?= e($c['name']) ?><div class="muted xs"><?= e($c['gender']) ?> · <?= e(age_text($c['dob'])) ?></div></td><td><?= e(fmt_date($c['dob'])) ?></td><td><?= e($c['blood_group'] ?: '-') ?></td>
 <td><div class="acts"><a class="btn sm ghost" href="?edit=<?= (int)$c['id'] ?>">Edit</a>
 <form method="post"><?= csrf_field() ?><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= (int)$c['id'] ?>"><button class="btn sm no" onclick="return confirm('Remove this child and all their records?')">Remove</button></form></div></td></tr><?php endforeach; ?>
 </tbody></table></div><?php else: ?><div class="empty">No children yet. Add one on the right.</div><?php endif; ?></div>

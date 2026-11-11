@@ -36,7 +36,7 @@ page_header('Vaccines');
 <div class="grid">
 <div class="card"><h3>Availability</h3><div class="tw"><table><thead><tr><th>Vaccine</th><th>Given at</th><th>Status</th><th></th></tr></thead><tbody>
 <?php foreach ($list as $v): ?>
-  <tr><td><?= e($v['name']) ?><div class="muted small"><?= e($v['description']) ?></div></td><td><?= $v['age_weeks'] ? (int)$v['age_weeks'] . ' weeks' : 'Birth' ?></td>
+  <tr><td><?= e($v['name']) ?><div class="muted xs"><?= e($v['description']) ?></div></td><td><?= $v['age_weeks'] ? (int)$v['age_weeks'] . ' weeks' : 'Birth' ?></td>
   <td><?= pill($v['available'] ? 'available' : 'unavailable') ?></td>
   <td><div class="acts"><form method="post"><?= csrf_field() ?><input type="hidden" name="action" value="toggle"><input type="hidden" name="id" value="<?= (int)$v['id'] ?>"><button class="btn sm ghost">Mark <?= $v['available'] ? 'unavailable' : 'available' ?></button></form>
   <a class="btn sm ghost" href="?edit=<?= (int)$v['id'] ?>">Edit</a></div></td></tr>

@@ -37,6 +37,6 @@ page_header('');
     <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
     <button class="btn" type="submit">Log in</button>
   </form>
-  <p class="muted small" style="margin-top:14px">New here? <a href="<?= e(url('register.php')) ?>">Create an account</a></p>
+  <p class="muted xs" style="margin-top:14px">New here? <a href="<?= e(url('register.php')) ?>">Create an account</a></p>
 </div>
 <?php page_footer();

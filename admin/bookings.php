@@ -20,7 +20,7 @@ page_header('Booking details');
 <button class="btn" type="submit">Filter</button></form>
 <?php if ($list): ?><div class="tw"><table><thead><tr><th>Child</th><th>Parent</th><th>Vaccine</th><th>Hospital</th><th>Date</th><th>Request</th><th>Vaccination</th></tr></thead><tbody>
 <?php foreach ($list as $a): ?><tr><td><?= e($a['child']) ?></td><td><?= e($a['parent']) ?></td><td><?= e($a['vaccine']) ?></td><td><?= e($a['hospital']) ?></td><td><?= e(fmt_date($a['preferred_date'])) ?></td>
-<td><?= pill($a['status']) ?><?php if ($a['admin_remark']): ?><div class="muted small"><?= e($a['admin_remark']) ?></div><?php endif; ?></td><td><?= $a['status'] === 'approved' ? pill($a['result']) : '' ?></td></tr><?php endforeach; ?>
+<td><?= pill($a['status']) ?><?php if ($a['admin_remark']): ?><div class="muted xs"><?= e($a['admin_remark']) ?></div><?php endif; ?></td><td><?= $a['status'] === 'approved' ? pill($a['result']) : '' ?></td></tr><?php endforeach; ?>
 </tbody></table></div><?= pager($page, $pages) ?>
 <?php else: ?><div class="empty">No bookings found.</div><?php endif; ?></div>
 <?php page_footer();

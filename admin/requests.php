@@ -27,8 +27,8 @@ page_header('Parent requests');
 <div class="card">
 <?php if ($list): ?><div class="tw"><table><thead><tr><th>Child</th><th>Parent</th><th>Vaccine</th><th>Hospital</th><th>Date</th><th>Decision</th></tr></thead><tbody>
 <?php foreach ($list as $r): ?>
-  <tr><td><?= e($r['child']) ?><div class="muted small"><?= e(age_text($r['dob'])) ?></div></td>
-  <td><?= e($r['parent']) ?><div class="muted small"><?= e($r['phone']) ?></div></td>
+  <tr><td><?= e($r['child']) ?><div class="muted xs"><?= e(age_text($r['dob'])) ?></div></td>
+  <td><?= e($r['parent']) ?><div class="muted xs"><?= e($r['phone']) ?></div></td>
   <td><?= e($r['vaccine']) ?><?= $r['available'] ? '' : ' ' . pill('unavailable') ?></td>
   <td><?= e($r['hospital']) ?></td><td><?= e(fmt_date($r['preferred_date'])) ?></td>
   <td><form method="post" class="acts"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$r['id'] ?>">

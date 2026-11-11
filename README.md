@@ -11,7 +11,11 @@ Roles: Parent, Admin, Hospital. Workflow: parent books, admin approves or reject
 Default admin: `admin@vms.local` / `Admin@12345`. Change this password after the first login.
 Parents and hospitals register themselves. The admin can also add hospitals, with or without a login.
 
+## Design
+Same look as the website preview: teal and coral palette, Bricolage Grotesque and Figtree fonts, cover page with the baby photo and tap-able immunization card, a How it works page, role pages with a Step 1/2/3 header, section tabs, live badges and a Next bar. Light and dark mode, remembered per browser. Styles are in `assets/app.css`, scripts in `assets/app.js`.
+
 ## Folders
+- `index.php` cover page · `how.php` how it works
 - `config/` settings · `includes/` database, auth, CSRF, validation, schedule logic, layout
 - `admin/` dashboard, requests, children, vaccines, hospitals, bookings, reports (CSV)
 - `parent/` dashboard, children, book, bookings, report, profile

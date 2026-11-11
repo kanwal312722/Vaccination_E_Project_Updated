@@ -37,7 +37,7 @@ page_header('Vaccination reports');
   <button class="btn" type="submit">Show</button>
   <button class="btn ghost" type="submit" name="export" value="csv">Download CSV</button>
 </form>
-<p class="muted small"><?= count($list) ?> records · <?= $done ?> vaccinated</p>
+<p class="muted xs"><?= count($list) ?> records · <?= $done ?> vaccinated</p>
 <?php if ($list): ?><div class="tw"><table><thead><tr><th>Date</th><th>Child</th><th>Parent</th><th>Vaccine</th><th>Hospital</th><th>Result</th></tr></thead><tbody>
 <?php foreach ($list as $r): ?><tr><td><?= e(fmt_date($r['given_on'])) ?></td><td><?= e($r['child']) ?></td><td><?= e($r['parent']) ?></td><td><?= e($r['vaccine']) ?></td><td><?= e($r['hospital']) ?></td><td><?= pill($r['status']) ?></td></tr><?php endforeach; ?>
 </tbody></table></div><?php else: ?><div class="empty">No records in this range.</div><?php endif; ?></div>

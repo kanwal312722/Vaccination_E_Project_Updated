@@ -14,8 +14,8 @@ page_header('All children');
 <form method="get" class="filters"><label>Search child or parent<input name="q" value="<?= e($search) ?>" maxlength="100"></label><button class="btn" type="submit">Search</button></form>
 <?php if ($list): ?><div class="tw"><table><thead><tr><th>Child</th><th>Gender</th><th>Born</th><th>Blood</th><th>Parent</th><th>Next vaccination</th></tr></thead><tbody>
 <?php foreach ($list as $c): $nx = next_due(child_schedule((int)$c['id'])); ?>
-  <tr><td><?= e($c['name']) ?><div class="muted small"><?= e(age_text($c['dob'])) ?></div></td><td><?= e($c['gender']) ?></td><td><?= e(fmt_date($c['dob'])) ?></td><td><?= e($c['blood_group'] ?: '-') ?></td>
-  <td><?= e($c['parent']) ?><div class="muted small"><?= e($c['phone'] ?: $c['email']) ?></div></td>
+  <tr><td><?= e($c['name']) ?><div class="muted xs"><?= e(age_text($c['dob'])) ?></div></td><td><?= e($c['gender']) ?></td><td><?= e(fmt_date($c['dob'])) ?></td><td><?= e($c['blood_group'] ?: '-') ?></td>
+  <td><?= e($c['parent']) ?><div class="muted xs"><?= e($c['phone'] ?: $c['email']) ?></div></td>
   <td><?php if ($nx): ?><?= e($nx['vaccine']['name']) ?> · <?= e(fmt_date($nx['due'])) ?> <?= pill($nx['state']) ?><?php else: ?>Complete<?php endif; ?></td></tr>
 <?php endforeach; ?></tbody></table></div><?= pager($page, $pages) ?>
 <?php else: ?><div class="empty">No children found.</div><?php endif; ?>
